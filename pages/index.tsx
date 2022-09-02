@@ -13,7 +13,14 @@ const Home: NextPage = () => {
       </Head>
 
       <NavigationBar />
-      <Sidebar />
+      <div className="relative flex flex-row overflow-hidden flex-1">
+        <Sidebar />
+
+        {/* Content */}
+        <div className="pl-5 pt-5">
+          <h1>Text</h1>
+        </div>
+      </div>
 
       {/* div : className="flex min-h-screen flex-col items-center justify-center py-2"
             <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">

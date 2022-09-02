@@ -5,7 +5,6 @@ import { faChevronDown, faChevronCircleDown, faBars, faXmark, faHouse, faUser } 
 export default function Sidebar() {
 
   const [navOpen, setNavOpen] = useState(false) //true if navbar was opened on mobile
-  //const [fullSidebar, setFullSidebar] = useState(true) //show either full or part of sidebar
   const [active, setActive] = useState<String | undefined>(undefined)
   const [dropdown, setDropdown] = useState<String | undefined>(undefined)
 
@@ -34,9 +33,9 @@ export default function Sidebar() {
   }
 
   return (
-    <div className='antialiased relative flex grow justify-between overflow-hidden'>
+    <div className='antialiased flex justify-between'>
       {/* mobile opener */}
-      <button className="sm:hidden z-10 absolute top-5 leading-[0] right-5 focus:outline-none" onClick={() => setNavOpen(!navOpen)}>
+      <button className="sm:hidden absolute top-5 leading-[0] right-5 focus:outline-none" onClick={() => setNavOpen(!navOpen)}>
         {!navOpen ?
           <FontAwesomeIcon icon={faBars} /> :
           <FontAwesomeIcon className="text-white" icon={faXmark} />
@@ -46,7 +45,7 @@ export default function Sidebar() {
       {/* sidebar */}
       <div
         className={classNames(
-          navOpen ? 'sm:w-64 w-full' : 'sm:w-20 sm:block hidden',
+          navOpen ? 'sm:w-64 w-screen' : 'sm:w-20 sm:block hidden',
           'bg-gray-900 transition-all duration-300 space-y-2 sm:relative animate-go-in sm:animate-none')}>
         <h1 className={classNames(navOpen ? 'px-4' : 'px-4 xm:px-2',
           'overflow-clip text-base text-center text-white whitespace-nowrap font-black py-4')}>

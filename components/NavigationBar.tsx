@@ -45,7 +45,7 @@ const NavigationBar = () => {
         </a>
 
         {/* ::User Profil */}
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu as="div" className="relative inline-block text-left z-20">
           {({ open }) => (
               <>
             <Menu.Button type="button" className="group align-middle inline-flex items-center space-x-2">
