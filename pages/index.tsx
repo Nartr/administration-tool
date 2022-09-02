@@ -2,18 +2,21 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import NavigationBar from "../components/NavigationBar";
+import Sidebar from "../components/Sidebar";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="h-screen flex flex-col">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <NavigationBar />
+      <Sidebar />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      {/* div : className="flex min-h-screen flex-col items-center justify-center py-2"
+            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Hello to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
@@ -82,6 +85,7 @@ const Home: NextPage = () => {
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
       </footer>
+      */}
     </div>
   )
 }

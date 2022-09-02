@@ -36,7 +36,7 @@ const NavigationBar = () => {
       <div className="flex-shrink-0 px-5 flex items-center space-x-6">
 
         {/* ::Notification Bell */}
-        <a href="#link" className="relative text-gray-500 hover:text-gray-700">
+        <a href="#link" className="relative text-gray-500 hover:text-indigo-700">
           {/* :::icon */}
           <FontAwesomeIcon className="text-2xl" icon={faBell} />
           {/* :::status ping */}
@@ -46,102 +46,98 @@ const NavigationBar = () => {
 
         {/* ::User Profil */}
         <Menu as="div" className="relative inline-block text-left">
-          <Menu.Button type="button" className="group align-middle inline-flex items-center space-x-2">
-            {/* :::avatar */}
-            <span className="flex-shrink-0 inline-block border-2 border-transparent rounded-full shadow overflow-hidden group-hover:border-indigo-500" aria-label="avatar">
-              <img src="https://fancytailwind.com/static/profile14-e9ac6c7d68a78a1cbbf29458acacc95a.jpg" alt="" className="w-10 h-10" />
-            </span>
-            {/* :::details */}
-            <div className="hidden md:flex flex-col space-y-0.5 text-left">
-              <p className="text-sm text-gray-700 font-semibold">Robin Oester</p>
-              <p className="text-xs text-gray-500 font-semibold">robin.oester@gmail.com</p>
-            </div>
-            {/* :::chevron icon */}
-            <span className="text-gray-500 group-hover:text-indigo-500">
-              <FontAwesomeIcon className="w-7 h-7" icon={faChevronDown} />
-            </span>
-          </Menu.Button>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className="divide-y origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-              <div className="px-1 py-1">
-                <Menu.Item disabled>
-                  {({ active }) => (
+          {({ open }) => (
+              <>
+            <Menu.Button type="button" className="group align-middle inline-flex items-center space-x-2">
+              {/* :::avatar */}
+              <span className="flex-shrink-0 inline-block border-2 border-transparent rounded-full shadow overflow-hidden group-hover:border-indigo-700" aria-label="avatar">
+                <img src="https://lcr.ch/wp-content/uploads/2021/07/Bildschirmfoto-2021-07-17-um-10.43.01.png" alt="" className="w-10 h-10" />
+              </span>
+
+              {/* :::details */}
+              <div className="hidden md:flex flex-col space-y-0.5 text-left">
+                <p className="text-sm text-gray-700 group-hover:text-indigo-700 font-semibold">Robin Oester</p>
+                <p className="text-xs text-gray-500 group-hover:text-indigo-500 font-semibold">robin.oester@gmail.com</p>
+              </div>
+
+              {/* :::chevron icon */}
+              <span className="text-gray-500 group-hover:text-indigo-700">
+                <FontAwesomeIcon className={classNames(open ? "rotate-180" : "rotate-0", "transition-all w-7 h-7")} icon={faChevronDown } />
+              </span>
+            </Menu.Button>
+            <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="divide-y origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="px-1 py-1">
+                  <Menu.Item disabled>
                     <a className={'text-gray-900 block px-4 py-2 text-sm text-center font-bold'} >
                       Athlet
                     </a>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="#"
-                      className={classNames(
-                        active ? 'bg-blue-200 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
-                      )}
-                    >
-                      <div className="flex items-center">
-                        <FontAwesomeIcon className="w-5 h-5 mr-2" icon={faGear} />
-                        Einstellungen
-                      </div>
-                    </a>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="#"
-                      className={classNames(
-                        active ? 'bg-blue-200 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
-                      )}
-                    >
-                      Support
-                    </a>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="#"
-                      className={classNames(
-                        active ? 'bg-blue-200 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
-                      )}
-                    >
-                      License
-                    </a>
-                  )}
-                </Menu.Item>
-              </div>
-              <div className="px-1 py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <a
-                      href="#"
-                      className={classNames(
-                        active ? 'bg-blue-200 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
-                      )}
-                    >
-                      <div className="flex items-center">
-                        <FontAwesomeIcon className="w-5 h-5 mr-2" icon={faArrowRightFromBracket} />
-                        Logout
-                      </div>
-                    </a>
-                  )}
-                </Menu.Item>
-              </div>
-            </Menu.Items>
-          </Transition>
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                        <a href="#"
+                            className={classNames(
+                                active ? 'text-indigo-700' : 'text-gray-700',
+                                'block px-4 py-2 text-sm'
+                            )} >
+                          <div className="flex items-center">
+                            <FontAwesomeIcon className="w-5 h-5 mr-2" icon={faGear} />
+                            Einstellungen
+                          </div>
+                        </a>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                        <a href="#"
+                            className={classNames(
+                                active ? 'text-indigo-700' : 'text-gray-700',
+                                'block px-4 py-2 text-sm'
+                            )}>
+                          Support
+                        </a>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                        <a href="#"
+                            className={classNames(
+                                active ? 'text-indigo-700' : 'text-gray-700',
+                                'block px-4 py-2 text-sm'
+                            )} >
+                          License
+                        </a>
+                    )}
+                  </Menu.Item>
+                </div>
+                <div className="px-1 py-1">
+                  <Menu.Item>
+                    {({ active }) => (
+                        <a href="#"
+                           className={classNames(
+                               active ? 'text-indigo-700' : 'text-gray-700',
+                               'block px-4 py-2 text-sm'
+                           )} >
+                           <div className="flex items-center">
+                             <FontAwesomeIcon className="w-5 h-5 mr-2" icon={faArrowRightFromBracket} />
+                             Logout
+                           </div>
+                        </a>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+              </>
+          )}
         </Menu>
       </div>
 
